@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Courier System - 3121</title>
+<style>
+body{font-family:Arial; background:#eef2ff; text-align:center}
+.box{background:white; width:380px; margin:40px auto; padding:20px; border-radius:12px; box-shadow:0 4px 10px #ccc}
+input,button{width:90%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ccc}
+button{background:#4f46e5; color:white; border:none; cursor:pointer}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>📦 Courier Logistics - 3121</h2>
+<input id="from" placeholder="From City (ex: Mumbai)">
+<input id="to" placeholder="To City (ex: Pune)">
+<input id="kg" placeholder="Weight (kg)" type="number">
+<button onclick="book()">Book & Optimize</button>
+<p id="out"></p>
+</div>
+
+<script>
+function book(){
+ let from = document.getElementById('from').value;
+ let to = document.getElementById('to').value;
+ let kg = document.getElementById('kg').value || 2;
+ 
+ // Delivery Optimization Logic - Shortest Route
+ let distance = Math.floor(Math.random()*400)+50; // Demo distance
+ let cost = distance*2 + kg*5;
+ if(distance < 100) cost -= 20; // Optimization Discount
+ 
+ document.getElementById('out').innerHTML = 
+ `✅ Courier Booked!<br>
+  Route: ${from} -> ${to}<br>
+  Optimized Distance: ${distance} km<br>
+  Cost: Rs.${cost}<br>
+  Status: In-Transit 🚚`;
+}
+</script>
+</body>
+</html>
